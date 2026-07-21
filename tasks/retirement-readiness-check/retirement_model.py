@@ -32,6 +32,9 @@ def blended_return(allocation: dict, returns_by_asset: dict) -> float:
 
     Returns:
         The blended nominal annual return, as a fraction (e.g. 0.061 for 6.1%).
+
+    Check yourself: the client's allocation above against DEFAULT_RETURNS gives
+    exactly 0.061.
     """
     raise NotImplementedError('TODO: weighted sum of allocation * returns_by_asset')
 
@@ -46,15 +49,31 @@ def project_portfolio_value(
     """Projects portfolio value at retirement, in today's real dollars.
 
     Convert the nominal blended_return to a real (inflation-adjusted) return
-    first, then compound current_savings for years_to_retirement years and
-    add the future value of annual_contribution as an ordinary annuity
-    (contribution made at the end of each year).
+    first — use the exact Fisher relation, real = (1 + nominal) / (1 + inflation) - 1,
+    not the (nominal - inflation) approximation. Then compound current_savings for
+    years_to_retirement years at that real rate, and add the future value of
+    annual_contribution as an ordinary annuity (contribution made at the end of
+    each year) at the same real rate.
+
+    Note what applying the real rate to a flat annual_contribution implies: the
+    client's contribution keeps its purchasing power, i.e. it rises with
+    inflation in nominal terms. That's the assumption this task asks for, and
+    it's a defensible one — but if you think a flat nominal contribution is the
+    more realistic model for this client, say so in your write-up. Noticing it
+    is a good answer; the point is to make the choice deliberately.
 
     Handle the edge case where the real return is ~0 — the annuity formula
-    divides by the real return rate, which blows up at exactly zero.
+    divides by the real return rate, which blows up at exactly zero. Below a
+    small tolerance (1e-9 is fine), the projection collapses to
+    current_savings + annual_contribution * years_to_retirement.
 
     Returns:
         Projected portfolio value at retirement, in today's real dollars.
+
+    Check yourself: (20_000, 8_000, 0.061, 0.025, 35) gives a real return of
+    ~3.5122% and a projected value of ~601_625. If you land near 450_684
+    instead, you compounded at the nominal rate and deflated the result at the
+    end — a reasonable-looking alternative that answers a different question.
     """
     raise NotImplementedError('TODO: real-return compounding + annuity future value')
 
@@ -64,5 +83,7 @@ def sustainable_withdrawal(portfolio_value: float, withdrawal_rate: float) -> tu
 
     Returns:
         (annual_withdrawal, monthly_withdrawal)
+
+    Check yourself: (601_625, 0.04) gives ~(24_065, 2_005).
     """
     raise NotImplementedError('TODO: portfolio_value * withdrawal_rate, and /12 for monthly')
