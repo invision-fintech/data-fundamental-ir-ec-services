@@ -90,10 +90,14 @@ if br is not None:
         col2.metric('Projected value at retirement', f'${fv:,.0f}')
         col3.metric('Sustainable withdrawal', f'${annual_withdrawal:,.0f}/yr', help=f'${monthly_withdrawal:,.0f}/month')
 
+        # Dollar signs are escaped here because st.error/st.success render their
+        # text as markdown, and a pair of unescaped $ gets parsed as inline LaTeX
+        # — which silently swallows both signs and italicises everything between
+        # them. st.metric above is not markdown-parsed, so it needs no escaping.
         if gap > 0:
-            st.error(f'Funding gap: short by ${gap:,.0f}/yr against the ${target_income:,.0f} target.')
+            st.error(f'Funding gap: short by \\${gap:,.0f}/yr against the \\${target_income:,.0f} target.')
         else:
-            st.success(f'On track: ${-gap:,.0f}/yr above the ${target_income:,.0f} target.')
+            st.success(f'On track: \\${-gap:,.0f}/yr above the \\${target_income:,.0f} target.')
     except NotImplementedError as e:
         st.info(f'Results not available yet — {e}\n\nSee `retirement_model.py`.')
 
