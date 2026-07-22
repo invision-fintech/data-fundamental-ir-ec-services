@@ -16,8 +16,9 @@ finishing before the rest runs.
 **Fastest way to start (no install):** open it directly in Colab —
 `https://colab.research.google.com/github/invision-fintech/data-fundamental-ir-ec-services/blob/main/tasks/filing-freshness-check/notebook.ipynb`
 
-**Or locally:** `pip install requests pandas matplotlib jinja2`, then open
-`notebook.ipynb` in Jupyter or VS Code.
+**Setting up locally:** see **[SETUP.md](../../SETUP.md)** — it covers
+installing everything on Windows. Once you're set up, open `notebook.ipynb`
+in VS Code (or Jupyter) and run it top to bottom.
 
 ## What "done" looks like
 
