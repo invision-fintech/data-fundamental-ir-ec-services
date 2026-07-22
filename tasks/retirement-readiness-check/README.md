@@ -27,13 +27,21 @@ task uses Colab.
 **Or locally:** `pip install streamlit pandas`, then from this folder:
 `streamlit run app.py` (opens in your browser automatically).
 
+**Checking your work:** `python test_retirement_model.py` from this folder
+(no extra installs; `pytest` works too if you prefer it). It checks each
+function against the reference numbers in the docstrings and tells you which
+ones aren't right yet. Before you start, everything reports `TODO` — that's
+your starting state, not a failure. Passing it is the floor, not the finish
+line; the screenshot and the write-up are what the review actually turns on.
+
 ## What "done" looks like
 
 This should be readable by someone who never opens `app.py` — a teammate
 should get the finding from the screenshot and the write-up alone:
 
-- All 3 functions in `retirement_model.py` are implemented (see their
-  docstrings for the exact formulas expected) and the app shows real numbers
+- All 3 functions in `retirement_model.py` are implemented (their docstrings
+  describe the approach; `test_retirement_model.py` pins the numbers) and the
+  app shows real numbers
   for a scenario of your choice: blended return, projected portfolio value
   at retirement, sustainable annual/monthly withdrawal, funding gap vs.
   target income, and the growth-over-time chart.

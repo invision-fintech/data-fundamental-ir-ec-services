@@ -18,7 +18,10 @@ This repo doesn't grant direct push access to non-`core` contributors, so
 3. Commit small, push often. One working PR is fine; a few incremental ones are
    also fine.
 4. Open a PR from your fork against `invision-fintech/data-fundamental-ir-ec-services:main`,
-   referencing the relevant issue. CI (gitleaks) must pass; one approval required.
+   referencing the relevant issue. The `gitleaks` check must be green and one approval is
+   required before merge. If `gitleaks` fails, read the run log — it names the file and
+   commit it flagged. If it looks like a false positive, say so in the PR rather than
+   working around it; a reviewer will sort it out.
 5. Squash-merge into `main`.
 
 ## Naming
