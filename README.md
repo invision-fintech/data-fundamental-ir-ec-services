@@ -4,6 +4,12 @@ A shared space for applied data engineering / data analysis work — proofs of
 concept, small research artifacts, self-contained tasks. It's a mix of things,
 and it'll keep growing.
 
+## Getting set up
+
+New here, or on a fresh machine? **[SETUP.md](SETUP.md)** takes you from nothing to a
+running task — including a browser-only option if you'd rather not install anything.
+Written for Windows, and written for people who don't live in a terminal.
+
 ## Structure
 
 Each task lives in its own folder under `tasks/`, and is self-contained: its

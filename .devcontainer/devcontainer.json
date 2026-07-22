@@ -1,0 +1,26 @@
+{
+  "name": "data-fundamental tasks",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+
+  // Everything the tasks need is installed on create, so a Codespace is
+  // usable the moment it finishes opening -- no setup commands to run.
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+
+  // 8501 is Streamlit's default, used by retirement-readiness-check.
+  "forwardPorts": [8501],
+  "portsAttributes": {
+    "8501": {
+      "label": "Streamlit app",
+      "onAutoForward": "openPreview"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  }
+}

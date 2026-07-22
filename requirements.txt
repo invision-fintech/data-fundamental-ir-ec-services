@@ -1,0 +1,13 @@
+# Everything the tasks/ exercises need, in one place.
+#
+# Install once and every task works:
+#     python -m pip install -r requirements.txt
+#
+# Adding a task? Add its dependencies here rather than to the task's README,
+# so there stays exactly one install command to learn.
+
+pandas          # both tasks
+requests        # filing-freshness-check
+matplotlib      # filing-freshness-check
+jinja2          # filing-freshness-check
+streamlit       # retirement-readiness-check

@@ -18,14 +18,15 @@ panel and the growth chart call into **[`retirement_model.py`](retirement_model.
 which has 3 functions left as `TODO`s — until those are filled in, the app
 runs fine but shows a placeholder instead of numbers.
 
-**Fastest way to start (no local install):** fork this repo, then deploy
-your fork's `tasks/retirement-readiness-check/app.py` on
-[Streamlit Community Cloud](https://streamlit.io/cloud) (free tier, connects
-directly to your GitHub fork) — closest equivalent here to how the notebook
-task uses Colab.
+**Setting up:** see **[SETUP.md](../../SETUP.md)** — it covers installing
+everything on Windows, and a browser-only option if you'd rather not install
+anything. Once you're set up, from this folder: `streamlit run app.py`
+(opens in your browser automatically).
 
-**Or locally:** `pip install streamlit pandas`, then from this folder:
-`streamlit run app.py` (opens in your browser automatically).
+**Or deploy it:** fork this repo and point
+[Streamlit Community Cloud](https://streamlit.io/cloud) at your fork's
+`tasks/retirement-readiness-check/app.py` (free tier, connects directly to
+GitHub) — closest equivalent here to how the notebook task uses Colab.
 
 **Checking your work:** `python test_retirement_model.py` from this folder
 (no extra installs; `pytest` works too if you prefer it). It checks each
